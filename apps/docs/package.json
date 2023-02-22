@@ -1,15 +1,17 @@
 {
-	"name": "docs",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"astro": "^2.0.14"
-	}
+  "name": "docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "uncache": "rm -rf .turbo",
+    "clean": "rm -rf .turbo && rm -rf node_modules",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^2.0.14"
+  }
 }
