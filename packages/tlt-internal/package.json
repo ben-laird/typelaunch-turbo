@@ -6,8 +6,13 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
+    "start": "vitest",
     "dev": "vitest",
     "test": "vitest run",
+    "test:watch": "vitest",
+    "cov": "vitest run --coverage",
+    "cov:watch": "vitest run --coverage",
+    "cov:detail": "vitest run --coverage && open-cli index.html",
     "lint": "eslint . --ext .ts && prettier --no-config --check 'src/**/*.ts'",
     "format": "eslint . --fix --ext .ts && prettier --no-config --write 'src/**/*.ts'",
     "uncache": "rm -rf .turbo",
@@ -16,6 +21,7 @@
   "devDependencies": {
     "eslint-config-typelaunch-turbo": "workspace:^0.0.0",
     "fast-check": "^3.6.3",
+    "open-cli": "^7.1.0",
     "prettier": "^2.8.4",
     "typescript": "latest",
     "vite-plugin-dts": "2.0.0-beta.3",
