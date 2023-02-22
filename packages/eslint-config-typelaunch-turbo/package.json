@@ -15,9 +15,6 @@
     "eslint-config-turbo": "latest",
     "eslint-plugin-prettier": "^4.2.1"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "devDependencies": {
     "eslint-define-config": "^1.15.0"
   }
