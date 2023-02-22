@@ -8,9 +8,7 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "docs",
-    "@typelaunch-turbo/internal",
-    "@typelaunch-turbo/external",
-    "@typelaunch-turbo/external-vite",
+    "eslint-plugin-typelaunch-turbo",
     "@typelaunch-turbo/tsconfig"
   ],
   "privatePackages": { "version": true, "tag": true }
