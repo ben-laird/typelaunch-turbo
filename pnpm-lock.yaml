@@ -4,18 +4,18 @@ importers:
 
   .:
     specifiers:
-      '@changesets/cli': ^2.22.0
-      '@typelaunch-turbo/tsconfig': workspace:^0.0.0
-      eslint-config-typelaunch-turbo: workspace:^0.0.0
-      fast-check: ^3.6.3
+      '@changesets/cli': latest
+      '@typelaunch-turbo/tsconfig': workspace:*
+      eslint-config-typelaunch-turbo: workspace:*
+      fast-check: latest
       open-cli: ^7.1.0
-      prettier: ^2.8.4
-      tsup: ^6.6.3
+      prettier: latest
+      tsup: latest
       turbo: latest
-      typescript: ^4.9.5
-      vite: ^4.1.4
-      vite-plugin-dts: 2.0.0-beta.3
-      vitest: ^0.28.5
+      typescript: latest
+      vite: latest
+      vite-plugin-dts: latest
+      vitest: latest
     devDependencies:
       '@changesets/cli': 2.26.0
       '@typelaunch-turbo/tsconfig': link:packages/tlt-tsconfig
@@ -27,7 +27,7 @@ importers:
       turbo: 1.8.2
       typescript: 4.9.5
       vite: 4.1.4
-      vite-plugin-dts: 2.0.0-beta.3_vite@4.1.4
+      vite-plugin-dts: 2.0.0_vite@4.1.4
       vitest: 0.28.5
 
   apps/docs:
@@ -5906,8 +5906,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts/2.0.0-beta.3_vite@4.1.4:
-    resolution: {integrity: sha512-QrsbTxyt0choSYXPxPfmN9XcSvxcVZk0zticxLrI5DkECs9KhDrSVGok1YP/UPkoKpfF9ThtOJcM5Rjuesxv/w==}
+  /vite-plugin-dts/2.0.0_vite@4.1.4:
+    resolution: {integrity: sha512-QzEkAyjV7FY8o1+nRIA8qL37TpQBUJbl9VnRNUGbsLYfFGsf9SfPtWVbkmw5pESZMjDJ8Pgfl+sHDXud5cUsYg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: '>=2.9.0'
