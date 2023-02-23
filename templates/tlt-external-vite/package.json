@@ -25,16 +25,5 @@
     "format": "eslint . --fix --ext .ts && prettier --no-config --write 'src/**/*.ts'",
     "uncache": "rm -rf .turbo",
     "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
-  },
-  "devDependencies": {
-    "@typelaunch-turbo/tsconfig": "workspace:^0.0.0",
-    "eslint-config-typelaunch-turbo": "workspace:^0.0.0",
-    "fast-check": "^3.6.3",
-    "open-cli": "^7.1.0",
-    "prettier": "^2.8.4",
-    "typescript": "latest",
-    "vite": "^4.1.4",
-    "vite-plugin-dts": "2.0.0-beta.3",
-    "vitest": "^0.28.5"
   }
 }
