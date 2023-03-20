@@ -14,6 +14,7 @@
     "uncache": "turbo run uncache && rm -rf .turbo",
     "clean": "turbo run clean && rm -rf node_modules",
     "reinstall": "pnpm clean && pnpm i",
+    "reinstall:hard": "pnpm clean && rm -rf pnpm-lock.yaml && pnpm i",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "FORCE_COLOR=1 turbo run build --filter='!docs' --no-cache --color && changeset publish"
@@ -27,7 +28,7 @@
     "prettier": "latest",
     "tsup": "latest",
     "turbo": "latest",
-    "typescript": "latest",
+    "typescript": "^4.9.0",
     "vite": "latest",
     "vite-plugin-dts": "latest",
     "vitest": "latest"
