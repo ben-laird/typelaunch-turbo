@@ -15,14 +15,15 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build:dev": "vite build",
+    "build": "pnpm build:dev",
     "test": "vitest run",
     "test:watch": "vitest",
     "cov": "vitest run --coverage",
     "cov:watch": "vitest run --coverage",
     "cov:detail": "vitest run --coverage && open-cli index.html",
-    "lint": "tsc && eslint . --ext .ts && prettier --no-config --check 'src/**/*.ts'",
-    "format": "eslint . --fix --ext .ts && prettier --no-config --write 'src/**/*.ts'",
+    "lint": "tsc && eslint . --ext .ts && prettier --check 'src/**/*.ts'",
+    "format": "eslint . --fix --ext .ts && prettier --write 'src/**/*.ts'",
     "uncache": "rm -rf .turbo",
     "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
   }

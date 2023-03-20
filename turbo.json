@@ -10,29 +10,43 @@
       "cache": false,
       "persistent": true
     },
+    "build:dev": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build:dev"]
+    },
     "build": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
-    "preview":{
+    "preview": {
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },
 
-    "test": {},
+    "test": {
+      "dependsOn": ["^build:dev"]
+    },
     "test:watch": {
+      "dependsOn": ["^build:dev"],
       "persistent": true
     },
     "cov": {
-      "outputs": ["coverage/**"]
+      "outputs": ["coverage/**"],
+      "dependsOn": ["^cov"]
     },
     "cov:watch": {
       "outputs": ["coverage/**"],
+      "dependsOn": ["^cov:watch"],
       "persistent": true
     },
 
-    "lint": {},
-    "format": {},
+    "lint": {
+      "dependsOn": ["^build:dev"]
+    },
+    "format": {
+      "dependsOn": ["^build:dev"]
+    },
 
     "uncache": {
       "cache": false
