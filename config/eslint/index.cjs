@@ -1,7 +1,8 @@
+/* eslint-disable no-undef */
 // @ts-check
-const { defineConfig } = require("eslint-define-config");
 
-module.exports = defineConfig({
+/** @type {import("eslint").Linter.Config} */
+const options = {
   root: true,
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "prettier", "turbo"],
@@ -15,4 +16,6 @@ module.exports = defineConfig({
     "spaced-comment": "warn",
     yoda: "error",
   },
-});
+};
+
+module.exports = options;
