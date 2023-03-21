@@ -1,4 +1,4 @@
 {
-  "extends": "../../packages/config/tsconfig/tsconfig.lib",
+  "extends": "@typelaunch-turbo/tsconfig/tsconfig.lib",
   "include": ["src"]
 }
