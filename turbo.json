@@ -1,6 +1,13 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": [
+    "**/.env.*local",
+    "tsup.config.ts",
+    "vitest.config.ts",
+    ".eslintrc.cjs",
+    ".prettierrc.cjs",
+    "packages/config/**"
+  ],
   "pipeline": {
     "start": {
       "cache": false,
