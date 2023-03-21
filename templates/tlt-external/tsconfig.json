@@ -1,7 +1,4 @@
 {
-  "extends": "../../packages/tlt-tsconfig/tsconfig.lib",
-  // "compilerOptions": {
-  //   "types": ["vitest/importMeta"]
-  // },
+  "extends": "../../config/tsconfig/tsconfig.lib",
   "include": ["src"]
 }
