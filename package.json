@@ -14,7 +14,7 @@
     "cov:watch": "FORCE_COLOR=1 turbo run cov:watch --color",
     "lint": "FORCE_COLOR=1 turbo run lint --color",
     "format": "FORCE_COLOR=1 turbo run format --color",
-    "uncache": "turbo run uncache && rm -rf .turbo",
+    "uncache": "turbo run uncache && rm -rf node_modules/.cache/turbo",
     "clean": "turbo run clean && rm -rf node_modules",
     "reinstall": "pnpm clean && pnpm i",
     "reset": "pnpm clean && rm -rf pnpm-lock.yaml && pnpm i",
