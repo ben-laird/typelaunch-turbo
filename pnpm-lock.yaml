@@ -6,11 +6,11 @@ importers:
     specifiers:
       '@changesets/cli': latest
       '@fast-check/vitest': ^0.0.3
+      '@typelaunch-turbo/eslint-config-typelaunch-turbo': workspace:*
       '@typelaunch-turbo/tsconfig': workspace:*
       '@types/eslint': ^8.21.3
       '@types/prettier': ^2.7.2
       '@vitest/coverage-c8': ^0.29.7
-      eslint-config-typelaunch-turbo: workspace:*
       open-cli: ^7.1.0
       prettier: latest
       tsup: latest
@@ -22,11 +22,11 @@ importers:
     devDependencies:
       '@changesets/cli': 2.26.0
       '@fast-check/vitest': 0.0.3_vitest@0.29.7
+      '@typelaunch-turbo/eslint-config-typelaunch-turbo': link:packages/config/eslint
       '@typelaunch-turbo/tsconfig': link:packages/config/tsconfig
       '@types/eslint': 8.21.3
       '@types/prettier': 2.7.2
       '@vitest/coverage-c8': 0.29.7_vitest@0.29.7
-      eslint-config-typelaunch-turbo: link:packages/config/eslint
       open-cli: 7.2.0
       prettier: 2.8.6
       tsup: 6.7.0_typescript@5.0.2

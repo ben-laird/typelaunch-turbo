@@ -4,7 +4,7 @@
 /** @type {import("eslint").Linter.Config} */
 const options = {
   root: true,
-  extends: ["typelaunch-turbo"],
+  extends: ["@typelaunch-turbo/typelaunch-turbo"],
 };
 
 module.exports = options;

@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-typelaunch-turbo",
+  "name": "@typelaunch-turbo/eslint-config-typelaunch-turbo",
   "version": "0.0.0",
   "private": true,
   "main": "index.cjs",
