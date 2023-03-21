@@ -6,6 +6,8 @@
     "build:dev": "FORCE_COLOR=1 turbo run build:dev --color",
     "build": "FORCE_COLOR=1 turbo run build --color",
     "preview": "FORCE_COLOR=1 turbo run preview --color",
+    "suite": "FORCE_COLOR=1 turbo run test lint --color",
+    "suite:ci": "FORCE_COLOR=1 turbo run cov format --color",
     "test": "FORCE_COLOR=1 turbo run test --color",
     "test:watch": "FORCE_COLOR=1 turbo run test:watch --color",
     "cov": "FORCE_COLOR=1 turbo run cov --color",
