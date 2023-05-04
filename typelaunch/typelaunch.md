@@ -2,7 +2,7 @@
 
 ![GitHub](https://img.shields.io/github/license/ben-laird/typelaunch-turbo) ![GitHub all releases](https://img.shields.io/github/downloads/ben-laird/typelaunch-turbo/total) ![GitHub issues](https://img.shields.io/github/issues-raw/ben-laird/typelaunch-turbo) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ben-laird/typelaunch-turbo) ![GitHub last commit](https://img.shields.io/github/last-commit/ben-laird/typelaunch-turbo) ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/ben-laird/typelaunch-turbo)
 
-TypeLaunch Turbo is an opinionated, public template repository made to easily bootstrap a TypeScript library with the latest features and best practices.
+TypeLaunch Turbo is an opinionated, public template repository made to easily bootstrap a TypeScript monorepo for applications and packages with the latest features and best practices.
 
 ## Pipeline
 
@@ -12,18 +12,18 @@ To use this template
 
 There are multiple edits that should be made to personalize TypeLaunch Turbo. Below is a checklist in order of importance.
 
-1. Add a `name` beyond "typelaunch-starter" in [`package.json`](../package.json) and [`vite.config.ts`](../vite.config.ts)
+1. Add a `name` beyond the placeholder in `package.json` and `vite.config.ts` in _each public-facing package using Vite as the build tool_
 2. Add a `SCOPED_REPO_TOKEN` and `NPM_TOKEN` to your repo's secrets. This allows GitHub Actions to manage deploying to npm. See [this issue](https://github.com/peter-evans/create-pull-request/issues/48) for more information.
 3. Replace the placeholder name "John Appleseed" with the project owner's name in the [`LICENSE`](../LICENSE)
 4. Replace all instances of the placeholder email "johnnyappleseed@example.com" with the project owner's email address in the [`CODE_OF_CONDUCT.md`](../.github/CODE_OF_CONDUCT.md)
-5. Add or customize these fields in [`package.json`](../package.json):
+5. Add or customize these fields in _each public-facing_ [`package.json`](../package.json):
    1. `author`
    2. `email`
    3. `description`
-   4. `repository`: provide a link to the GitHub repo this project resides in
+   4. `repository`: provide a link to the GitHub repo the entire project resides in
    5. `homepage`: provide a link to one of these resources
       1. Front-facing webpage
-      2. Documentation
+      2. Documentation (we have an [app](../apps/docs/src/pages/index.astro) in the `app` directory for that!)
       3. GitHub repo
    6. `bugs.url`: provide a link to your bug tracker
    7. `keywords`
@@ -78,7 +78,7 @@ This project makes use of some dev dependencies that enforce following the above
 
 ## Recommendations
 
-- TypeScript is provided for type-safety and is intended to be used instead of JavaScript. The [tsconfig](../tsconfig.json) included uses strict mode, so the TypeScript compiler will complain about a lot of things. Remember, TypeScript errors are your friend.
+- TypeScript is provided for type-safety and is intended to be used instead of JavaScript. The [base tsconfig](../packages/config/tsconfig/tsconfig.base.json) included uses strict mode, so the TypeScript compiler will complain about a lot of things. Remember, TypeScript errors are your friend.
 - Usage of docstrings is highly encouraged, as it provides an easy way to produce documentation. The docstrings you make allow IDE's like VSCode (my personal favorite) to provide inline documentation and tab completion directly in the editor!
 - Use Vitest for test-driven or behavior-driven development. Before working on the project, run `pnpm run dev` to get Vitest going. See the [Commands](typelaunch.md#commands) section for more details.
 
@@ -93,32 +93,44 @@ TypeLaunch is an opinionated template. The most important tenets of TypeLaunch a
 
 The more granular opinions are described below:
 
-- ESLint and Prettier are pre-configured in the [project's package file](../package.json). This is where most of the opinions are.
-  - Prettier has no config key because all presets/recommendations are followed.
+- ESLint is pre-configured in [a separate package](../packages/config/eslint/index.cjs), and Prettier is pre-configured at the [project root](../.prettierrc.cjs). This is where most of the opinions are.
+  - All recommended Prettier presets are followed
   - All recommended ESLint presets are followed, with the exception of two additional rules. They are set to warn and not throw an exception because they are slightly pedantic.
     - `spaced-comment` is in `always` mode, which will "enforce consistent spacing after the // or /\* in a comment". See [here](https://eslint.org/docs/latest/rules/spaced-comment#rule-details) for details.
     - `yoda` is in `never` mode, which will disallow "Yoda conditions" where a literal is compared to a variable and not the other way around. See [here](https://eslint.org/docs/latest/rules/yoda#rule-details) for details.
-- I've worked on projects where the root directory is a mess of config files with no way to hide them because they all had to be at the root. Therefore, I've tried to hide as much of the config in [`package.json`](../package.json) as I can. Most of these config keys can be moved to their own files if necessary by making a `<package>rc.*` file at the root. Read the package's documentation before doing so to see if it is possible, but if so, feel free to.
+- I've worked on projects where the root directory is a mess of config files with no way to hide them because they all had to be at the root. Therefore, I've tried to hide as much of the config in packages as I can. This also aligns with the second tenet of TypeLaunch.
 - In the same spirit, the [code of conduct](../.github/CODE_OF_CONDUCT.md) is in the `.github` folder, but can be moved to the project root.
-- Part of the reason I made this template is to have full control over what tools I used and how I used them. I brought this design philosophy to TypeLaunch as much as I could; if a package is getting in your way, you just need to uninstall it; the only one that needs some extra config is changesets because that's integrated into the CI build. Otherwise, it's as simple as `pnpm uninstall <package>`.
+- Part of the reason I made this template is to have full control over what tools I used and how I used them. I brought this design philosophy to TypeLaunch as much as I could; if a package is getting in your way, you just need to uninstall it or delete it; the only one that needs some extra config is changesets because that's integrated into the CI build. Otherwise, it's as simple as `pnpm uninstall <package>` and/or `rm -rf <directory>`.
 - TypeLaunch is also dependency-free for a reason: the thing shouldn't get in the way of what your application needs and should only help you if you develop it. Usage of TypeLaunch not contributing to build sizes is also a nice plus.
 - Errors are your friend. No seriously. I've configured TypeLaunch to berate the developer with errors, exceptions, and test failures. Errors are also the lifeblood of test-driven development, a practice I'm getting better at following. Adding these errors is meant to make sure the code, docs, and tests are in tip-top shape.
+- Turborepo is great. Oftentimes you won't need to worry about messing around with a single package or app because Turborepo handles building, linting, and so on. And Turborepo is ridiculously aggressive about doing as little work as possible; it caches as much as it can so you don't have to manually look through what files changed and which didn't. With TypeLaunch, you still have full control over your builds; run `pnpm uncache` to force Turborepo to recalculate everything. It's like a language server reset for your build/lint system!
+- Although they're available just in case, you should be careful when running any commands at the project root that spin up a persistent process, like a dev server or a process in watch mode. Turborepo will try to spin up _all_ persistent processes at once, making for a rather cluttered terminal and potentially serving conflicts as dev servers try to use the same host and port to serve web apps. Know what your dev and test commands do before running a dev or test command at the project root!
 
 ## Commands
 
-Utilize these commands in your development pipeline by running `pnpm run <command>`. For convenience, a table for these commands is included here:
+Utilize these commands in your development pipeline by running `pnpm run <command>` (or `pnpm <command>` if the command name doesn't conflict with any core pnpm scripts). For convenience, a table for these commands is included here:
 
-| Command      | Description                                                  |
-| ------------ | ------------------------------------------------------------ |
-| dev          | Run Vitest tests in watch mode                               |
-| build        | Build the project                                            |
-| lint         | Lint the project with TSC, ESLint, and Prettier              |
-| test         | Run Vitest tests once                                        |
-| test:watch   | Run Vitest tests in watch mode                               |
-| cov          | Run Vitest tests and provide a coverage report               |
-| cov:watch    | Run Vitest tests in watch mode and provide a coverage report |
-| cov:detail   | Run Vitest tests and open a coverage report in the browser   |
-| change       | Create a changeset                                           |
-| change:empty | Create a special changeset with no changes noted             |
-| review       | Review your changeset changes                                |
-| release      | Build the project and create or update the changelog         |
+| Command             | Description                                                         |
+| ------------------- | ------------------------------------------------------------------- |
+| start               | Run your projects' `start` command (if it exists)                   |
+| dev                 | Run Vitest tests in watch mode                                      |
+| build:dev           | Build a developer-friendly version of the project                   |
+| build               | Build the project, optimized for production                         |
+| preview             | Run your projects' `preview` command (if it exists)                 |
+| suite               | Run a suite of commands to check your code, tailored to development |
+| suite:ci            | Run a suite of commands to check your code, tailored to ci          |
+| test                | Run Vitest tests once                                               |
+| test:watch          | Run Vitest tests in watch mode                                      |
+| cov                 | Run Vitest tests and provide a coverage report                      |
+| cov:watch           | Run Vitest tests in watch mode and provide a coverage report        |
+| lint                | Lint the project with TSC, ESLint, and Prettier                     |
+| format              | Format the project with TSC, ESLint, and Prettier                   |
+| uncache             | Delete all Turborepo caches                                         |
+| clean               | Delete all `node_modules` directories                               |
+| resinstall          | Clean the project then reinstall packages                           |
+| reset               | Clean the project, delete the lockfile, then reinstall packages     |
+| change              | Create a changeset                                                  |
+| change:empty        | Create a special changeset with no changes noted                    |
+| review              | Review your changeset changes                                       |
+| release             | Build the project and create or update the changelog                |
+| typelaunch-generate | Recover this directory (and template projects!)                     |
