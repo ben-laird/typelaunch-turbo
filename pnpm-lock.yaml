@@ -26,8 +26,8 @@ importers:
         specifier: ^2.7.2
         version: 2.7.2
       '@vitest/coverage-c8':
-        specifier: ^0.29.7
-        version: 0.29.7(vitest@0.31.0)
+        specifier: ^0.31.0
+        version: 0.31.0(vitest@0.31.0)
       degit:
         specifier: ^2.8.4
         version: 2.8.4
@@ -1459,12 +1459,14 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: false
 
-  /@vitest/coverage-c8@0.29.7(vitest@0.31.0):
-    resolution: {integrity: sha512-TSubtP9JFBuI/wuApxwknHe40VDkX8hFbBak0OXj4/jCeXrEu5B5GPWcxzyk9YvzXgCaDvoiZV79I7AvhNI9YQ==}
+  /@vitest/coverage-c8@0.31.0(vitest@0.31.0):
+    resolution: {integrity: sha512-h72qN1D962AO7UefQVulm9JFP5ACS7OfhCdBHioXU8f7ohH/+NTZCgAqmgcfRNHHO/8wLFxx+93YVxhodkEJVA==}
     peerDependencies:
-      vitest: '>=0.29.0 <1'
+      vitest: '>=0.30.0 <1'
     dependencies:
+      '@ampproject/remapping': 2.2.1
       c8: 7.13.0
+      magic-string: 0.30.0
       picocolors: 1.0.0
       std-env: 3.3.3
       vitest: 0.31.0
