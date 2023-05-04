@@ -1,4 +1,5 @@
 {
+  "name": "@typelaunch-turbo/main",
   "private": true,
   "scripts": {
     "start": "FORCE_COLOR=1 turbo run start --color",
@@ -25,12 +26,13 @@
     "postinstall": "pnpm build:dev",
     "typelaunch-generate": "degit ben-laird/typelaunch-turbo/typelaunch typelaunch"
   },
-  "devDependencies": {
+  "packageManager": "pnpm@8.4.0",
+  "dependencies": {
     "@changesets/cli": "latest",
     "@fast-check/vitest": "^0.0.3",
     "@manypkg/cli": "^0.20.0",
-    "@typelaunch-turbo/eslint-config-typelaunch-turbo": "workspace:*",
-    "@typelaunch-turbo/tsconfig": "workspace:*",
+    "@typelaunch-turbo/eslint-config-typelaunch-turbo": "0.0.0",
+    "@typelaunch-turbo/tsconfig": "0.0.0",
     "@types/eslint": "^8.21.3",
     "@types/prettier": "^2.7.2",
     "@vitest/coverage-c8": "^0.29.7",
@@ -43,6 +45,5 @@
     "vite": "latest",
     "vite-plugin-dts": "latest",
     "vitest": "latest"
-  },
-  "packageManager": "pnpm@7.15.0"
+  }
 }
