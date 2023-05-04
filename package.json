@@ -22,7 +22,8 @@
     "change:empty": "changeset --empty",
     "review": "changeset version",
     "release": "FORCE_COLOR=1 turbo run build --no-cache --color && changeset publish",
-    "postinstall": "pnpm build:dev"
+    "postinstall": "pnpm build:dev",
+    "typelaunch-generate": "degit ben-laird/typelaunch-turbo/typelaunch typelaunch"
   },
   "devDependencies": {
     "@changesets/cli": "latest",
@@ -32,6 +33,7 @@
     "@types/eslint": "^8.21.3",
     "@types/prettier": "^2.7.2",
     "@vitest/coverage-c8": "^0.29.7",
+    "degit": "^2.8.4",
     "open-cli": "^7.1.0",
     "prettier": "latest",
     "tsup": "latest",
