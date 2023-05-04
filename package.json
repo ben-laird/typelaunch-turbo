@@ -28,6 +28,7 @@
   "devDependencies": {
     "@changesets/cli": "latest",
     "@fast-check/vitest": "^0.0.3",
+    "@manypkg/cli": "^0.20.0",
     "@typelaunch-turbo/eslint-config-typelaunch-turbo": "workspace:*",
     "@typelaunch-turbo/tsconfig": "workspace:*",
     "@types/eslint": "^8.21.3",
