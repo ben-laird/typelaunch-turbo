@@ -12,9 +12,9 @@ To use this template
 
 There are multiple edits that should be made to personalize TypeLaunch Turbo. Below is a checklist in order of importance.
 
-1. Add a `name` beyond the placeholder in `package.json` and `vite.config.ts` in _each public-facing package using Vite as the build tool_
-2. Add a `SCOPED_REPO_TOKEN` and `NPM_TOKEN` to your repo's secrets. This allows GitHub Actions to manage deploying to npm. See [this issue](https://github.com/peter-evans/create-pull-request/issues/48) for more information.
-3. Replace the placeholder name "John Appleseed" with the project owner's name in the [`LICENSE`](../LICENSE)
+1. Add a `name` beyond the placeholder in `package.json` and `vite.config.ts` in _each public-facing package using Vite as the build tool_. Change the `name` field in all public facing packages, regardless of build tool.
+2. Add a `SCOPED_REPO_TOKEN` and `NPM_TOKEN` to your repo's secrets. This allows GitHub Actions to manage deploying to npm. See [this issue](https://github.com/peter-evans/create-pull-request/issues/48) for more information, and see [this issue](https://github.com/changesets/action/issues/220) as well as [this issue](https://github.com/changesets/action/issues/268) for a list of permissions to give to the `SCOPED_REPO_TOKEN`.
+3. Replace the placeholder name "John Appleseed" with the project owner's name in each [`LICENSE`](../LICENSE.md) for all public-facing packages
 4. Replace all instances of the placeholder email "johnnyappleseed@example.com" with the project owner's email address in the [`CODE_OF_CONDUCT.md`](../.github/CODE_OF_CONDUCT.md)
 5. Add or customize these fields in _each public-facing_ [`package.json`](../package.json):
    1. `author`
@@ -23,7 +23,7 @@ There are multiple edits that should be made to personalize TypeLaunch Turbo. Be
    4. `repository`: provide a link to the GitHub repo the entire project resides in
    5. `homepage`: provide a link to one of these resources
       1. Front-facing webpage
-      2. Documentation (we have an [app](../apps/docs/src/pages/index.astro) in the `app` directory for that!)
+      2. Documentation (we have an [app specifically for documentation](../apps/docs/src/pages/index.astro) in the `app` directory for that!)
       3. GitHub repo
    6. `bugs.url`: provide a link to your bug tracker
    7. `keywords`
@@ -113,18 +113,20 @@ Utilize these commands in your development pipeline by running `pnpm run <comman
 | Command             | Description                                                         |
 | ------------------- | ------------------------------------------------------------------- |
 | start               | Run your projects' `start` command (if it exists)                   |
-| dev                 | Run Vitest tests in watch mode                                      |
-| build:dev           | Build a developer-friendly version of the project                   |
+| dev                 | Run Vitest tests in watch mode and/or spin up dev servers           |
+| build:dev           | Build a dev-friendly/dev-readable build of the project              |
 | build               | Build the project, optimized for production                         |
 | preview             | Run your projects' `preview` command (if it exists)                 |
 | suite               | Run a suite of commands to check your code, tailored to development |
-| suite:ci            | Run a suite of commands to check your code, tailored to ci          |
+| suite:ci            | Run a suite of commands to check/fix your code, tailored to ci      |
 | test                | Run Vitest tests once                                               |
 | test:watch          | Run Vitest tests in watch mode                                      |
 | cov                 | Run Vitest tests and provide a coverage report                      |
 | cov:watch           | Run Vitest tests in watch mode and provide a coverage report        |
 | lint                | Lint the project with TSC, ESLint, and Prettier                     |
+| mono-lint           | Lint the structure of the monorepo using `manypkg`                  |
 | format              | Format the project with TSC, ESLint, and Prettier                   |
+| mono-fix            | Fix the project structure of the monorepo using `manypkg`           |
 | uncache             | Delete all Turborepo caches                                         |
 | clean               | Delete all `node_modules` directories                               |
 | resinstall          | Clean the project then reinstall packages                           |
