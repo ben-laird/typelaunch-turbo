@@ -13,8 +13,8 @@
     "cov": "vitest run --coverage",
     "cov:watch": "vitest run --coverage",
     "cov:detail": "vitest run --coverage && open-cli index.html",
-    "lint": "tsc && eslint . --ext .ts && prettier --check 'src/**/*.ts'",
-    "format": "eslint . --fix --ext .ts && prettier --write 'src/**/*.ts'",
+    "lint": "tsc && rome check .",
+    "format": "rome format .",
     "uncache": "rm -rf .turbo",
     "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
   }
