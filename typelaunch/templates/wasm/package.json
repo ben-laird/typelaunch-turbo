@@ -1,0 +1,23 @@
+{
+  "name": "@typelaunch-turbo/wasm",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "rsw watch & vite",
+    "build": "rsw build && npm run fe:build",
+    "rsw": "rsw",
+    "fe:build": "tsc && vite build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rsw-hello": "link:rsw-hello/pkg"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "^5.1.3",
+    "vite": "^4.3.9",
+    "vite-plugin-rsw": "^2.0.11"
+  }
+}
