@@ -13,7 +13,24 @@ extern "C" {
     fn alert(s: &str);
 }
 
+// Example functions
+
 #[wasm_bindgen]
 pub fn greet(name: &str) {
     alert(&format!("Hello, {}!", name));
+}
+
+#[wasm_bindgen]
+pub fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+#[wasm_bindgen]
+pub fn subtract(a: i32, b: i32) -> i32 {
+    a - b
+}
+
+#[wasm_bindgen]
+pub fn wish_happy_birthday(name: String, age: i32) -> String {
+    String::from(&format!("Happy {}th birthday, {}!", age, name))
 }
