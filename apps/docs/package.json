@@ -8,10 +8,14 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "tsc && rome check . && astro check",
+    "format": "rome format .",
+    "uncache": "rm -rf .turbo",
+    "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.2.0",
-    "astro": "^2.6.4"
+    "@astrojs/starlight": "^0.4.0",
+    "astro": "^2.7.2"
   }
 }
