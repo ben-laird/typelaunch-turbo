@@ -31,11 +31,11 @@ async function fixWasmPackage() {
   );
 }
 
-await fixWasmPackage();
-
-export default defineConfig(({ mode, command }) => {
+export default defineConfig(async ({ mode, command }) => {
   const inPreviewMode = mode === "preview";
   const inBuildDevMode = mode === "development" && command === "build";
+
+  await fixWasmPackage();
 
   return {
     build: {
