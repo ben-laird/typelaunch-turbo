@@ -5,8 +5,13 @@
   },
   "files": {
     "ignore": [
-      "dist", "coverage", ".turbo", ".astro", ".sveltekit",
-      "vite.config.ts-timestamp-*"
+      "dist",
+      "coverage",
+      ".turbo",
+      ".astro",
+      ".sveltekit",
+      "vite.config.ts-timestamp-*",
+      "crate/**"
     ]
   }
 }
