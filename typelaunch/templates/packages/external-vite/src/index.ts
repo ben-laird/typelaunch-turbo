@@ -1,7 +1,5 @@
-export const add = (a: number, b = 1) => {
-  return a + b;
-};
+import * as lib from "./index.staging";
 
-export const subtract = (a: number, b: number) => {
-  return a - b;
-};
+export * from "./index.staging";
+export { lib };
+// export default lib; // Only enable this if building only in ESM format!
