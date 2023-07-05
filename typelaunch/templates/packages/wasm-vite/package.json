@@ -2,13 +2,13 @@
   "name": "@typelaunch-turbo/wasm-vite",
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/wasm-vite.umd.cjs",
+  "main": "./dist/wasm-vite.js",
   "module": "./dist/wasm-vite.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/wasm-vite.js",
-      "require": "./dist/wasm-vite.umd.cjs"
+      "require": null
     }
   },
   "scripts": {

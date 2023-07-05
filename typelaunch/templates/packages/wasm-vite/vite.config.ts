@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import fs from "fs/promises";
 // Use Vitest instead of vite for types. See https://vitest.dev/config/#configuration
 import { defineConfig } from "vitest/config";
 
@@ -6,6 +7,31 @@ import dts from "vite-plugin-dts";
 import { ViteRsw as rsw } from "vite-plugin-rsw";
 import solid from "vite-plugin-solid";
 import wasm from "vite-plugin-wasm";
+
+interface Pkg {
+  type?: "commonjs" | "module";
+  main?: string;
+  module: string;
+}
+
+const PKG_LOCATION = "./crate/dist/package.json";
+
+// TODO move to separate cli
+async function fixWasmPackage() {
+  const packageFileContent = await fs.readFile(PKG_LOCATION, "utf-8");
+  const packageJSON: Pkg = JSON.parse(packageFileContent);
+
+  packageJSON.type = "module";
+  packageJSON.main = packageJSON.module;
+
+  await fs.writeFile(
+    PKG_LOCATION,
+    JSON.stringify(packageJSON, null, 2),
+    "utf-8",
+  );
+}
+
+await fixWasmPackage();
 
 export default defineConfig(({ mode, command }) => {
   const inPreviewMode = mode === "preview";
@@ -27,6 +53,7 @@ export default defineConfig(({ mode, command }) => {
       emptyOutDir: true,
       target: "esnext",
     },
+
     test: {
       // Allow for Rust-like in-source testing. See https://vitest.dev/guide/in-source.html
       includeSource: ["src/**/*.{js,ts}"],
@@ -37,6 +64,7 @@ export default defineConfig(({ mode, command }) => {
       // See https://vitest.dev/guide/in-source.html#production-build
       "import.meta.vitest": "undefined",
     },
+
     plugins: [
       // No need for type declarations when previewing
       !inPreviewMode
