@@ -1,9 +1,4 @@
 {
-  "extends": "astro/tsconfigs/base",
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "preact",
-    "skipLibCheck": true,
-    "strictNullChecks": true
-  }
+  "extends": "astro/tsconfigs/strict",
+  "include": ["src"]
 }

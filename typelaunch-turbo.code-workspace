@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "name": "Docs",
+      "path": "apps/docs"
+    },
+    {
+      "name": "Root",
+      "path": "."
+    }
+  ]
+}
