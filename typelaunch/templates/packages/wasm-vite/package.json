@@ -1,6 +1,7 @@
 {
   "name": "@typelaunch-turbo/wasm-vite",
   "version": "0.1.0",
+  "private": true,
   "type": "module",
   "main": "./dist/wasm-vite.js",
   "module": "./dist/wasm-vite.js",

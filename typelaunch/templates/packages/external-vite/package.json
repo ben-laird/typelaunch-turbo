@@ -1,5 +1,6 @@
 {
   "name": "@typelaunch-turbo/external-vite",
+  "private": true,
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/external-vite.umd.cjs",
